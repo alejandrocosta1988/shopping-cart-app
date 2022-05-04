@@ -10,3 +10,4 @@ O desafio é fazer com que todos os itens sejam exibidos corretamente para o usu
 ## Estrutura do projeto
 
 O projeto está estrutura com base em na arquitetura MVC. Como modelo, temos as classes; `Product`, `CartItem` e `Cart`.
+
