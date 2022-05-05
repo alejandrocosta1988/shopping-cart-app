@@ -60,5 +60,18 @@ public class Cart implements Serializable {
 		}
 		return total;
 	}
+
+	public void updateQuantity(CartItem cartItem) {
+		
+		String code = cartItem.getProductCode();
+		int quantity = cartItem.getQuantity();
+		
+		for (CartItem item : items) {
+			if (item.getProductCode().equals(code)) {
+				item.setQuantity(quantity);
+			}
+		}
+		
+	}
 	
 }

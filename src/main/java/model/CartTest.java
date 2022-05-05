@@ -58,5 +58,16 @@ class CartTest {
 		assertEquals(cart.getTotalNumberOfItems(), 5);
 		
 	}
+	
+	@Test
+	void updateQuantityUpdatesTheQuantityOfAnItem() {
+		
+		cart.addItem(cartItemA);
+		cartItemA.setQuantity(1);
+		cart.updateQuantity(cartItemA);
+		
+		assertEquals(cart.getTotalNumberOfItems(), 1);
+		
+	}
 
 }
