@@ -23,17 +23,26 @@ public class Cart implements Serializable {
 
 	public void addItem(CartItem cartItem) {
 		
-		String productCode = cartItem.getProduct().getCode();
-		
-		for (CartItem item : items) {
-			String existentCode = item.getProduct().getCode();
-			if (productCode.equals(existentCode)) {
-				return;
-			}
+		if (isItemAlreadyInCart(cartItem)) {
+			return;
 		}
 		
 		items.add(cartItem);
 		
+	}
+	
+	private boolean isItemAlreadyInCart(CartItem cartItem) {
+		String productCode = cartItem.getProduct().getCode();
+		String itemsCode = "";
+		
+		for (CartItem item : items) {
+			itemsCode = item.getProduct().getCode();
+			if (productCode.equals(itemsCode)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 }
