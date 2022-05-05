@@ -69,5 +69,27 @@ class CartTest {
 		assertEquals(cart.getTotalNumberOfItems(), 1);
 		
 	}
+	
+	@Test
+	void removeItemDeletesTheItemFromCart() {
+		
+		cart.addItem(cartItemA);
+		cart.addItem(cartItemB);
+		cart.removeItem(cartItemA);
+		
+		assertEquals(cart.getTotalNumberOfItems(), 1);
+		
+	}
+	
+	@Test
+	void removeAllItemsInCart() {
+		
+		cart.addItem(cartItemA);
+		cart.addItem(cartItemB);
+		
+		cart.emptyCart();
+		
+		assertEquals(cart.getTotalNumberOfItems(), 0);
+	}
 
 }

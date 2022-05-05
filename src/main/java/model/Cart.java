@@ -73,5 +73,13 @@ public class Cart implements Serializable {
 		}
 		
 	}
+
+	public void removeItem(CartItem cartItem) {
+		items.remove(cartItem);
+	}
+	
+	public void emptyCart() {
+		items.clear();
+	}
 	
 }
