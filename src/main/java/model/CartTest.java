@@ -47,5 +47,15 @@ class CartTest {
 		assertEquals(cart.getCount(), 1);
 		
 	}
+	
+	@Test
+	void addItemIncreasesQuantityIfItemIsAlreadyInCart() {
+		
+		cart.addItem(cartItemB);
+		cart.addItem(cartItemB);
+		
+		assertEquals(cart.getTotalNumberOfItems(), 2);
+		
+	}
 
 }

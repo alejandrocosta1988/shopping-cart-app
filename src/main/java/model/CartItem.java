@@ -22,6 +22,10 @@ public class CartItem implements Serializable {
 		return currency.format(this.getTotal());
 	}
 	
+	public String getProductCode() {
+		return product.getCode();
+	}
+	
 	public double getTotal() {
 		return quantity * product.getPrice();
 	}
