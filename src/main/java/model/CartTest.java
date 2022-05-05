@@ -51,10 +51,11 @@ class CartTest {
 	@Test
 	void addItemIncreasesQuantityIfItemIsAlreadyInCart() {
 		
+		cart.addItem(cartItemA);
 		cart.addItem(cartItemB);
 		cart.addItem(cartItemB);
 		
-		assertEquals(cart.getTotalNumberOfItems(), 2);
+		assertEquals(cart.getTotalNumberOfItems(), 5);
 		
 	}
 

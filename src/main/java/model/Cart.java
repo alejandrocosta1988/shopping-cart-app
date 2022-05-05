@@ -24,29 +24,33 @@ public class Cart implements Serializable {
 	public void addItem(CartItem cartItem) {
 		
 		if (isItemAlreadyInCart(cartItem)) {
-			
-			int index = items.indexOf(cartItem);
-			CartItem updatedItem = items.get(index);
-			updatedItem.setQuantity(updatedItem.getQuantity() + 1);
-			items.set(index, updatedItem);
-			
+			updateItemQuantity(cartItem);
 		} else {
 			items.add(cartItem);
 		}
+		
 	}
 	
 	private boolean isItemAlreadyInCart(CartItem cartItem) {
 		String productCode = cartItem.getProductCode();
-		String itemsCode = "";
 		
 		for (CartItem item : items) {
-			itemsCode = item.getProductCode();
+			String itemsCode = item.getProductCode();
 			if (productCode.equals(itemsCode)) {
 				return true;
 			}
 		}
 		
 		return false;
+	}
+	
+	private void updateItemQuantity(CartItem cartItem) {
+		
+		int index = items.indexOf(cartItem);
+		CartItem updatedItem = items.get(index);
+		updatedItem.setQuantity(updatedItem.getQuantity() + 1);
+		items.set(index, updatedItem);
+		
 	}
 
 	public Integer getTotalNumberOfItems() {
