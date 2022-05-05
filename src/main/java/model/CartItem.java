@@ -12,6 +12,11 @@ public class CartItem implements Serializable {
 	
 	public CartItem() {}
 	
+	public CartItem(Product product, int quantity) {
+		this.product = product;
+		this.quantity = quantity;
+	}
+	
 	public String getTotalCurrencyFormat() {
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(this.getTotal());

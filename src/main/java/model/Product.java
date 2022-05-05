@@ -20,6 +20,12 @@ public class Product implements Serializable {
 		this.description = "";
 		this.price = 0;
 	}
+	
+	public Product(String code, String description, double price) {
+		this.code = code;
+		this.description = description;
+		this.price = price;
+	}
 
 	
 	public String getPriceCurrencyFormat() {
