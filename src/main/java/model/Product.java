@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.text.NumberFormat;
+import java.util.Objects;
 
 /**
  * Armazena informações sobre cada produto disponível no website.
@@ -55,6 +56,24 @@ public class Product implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, description, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(code, other.code) && Objects.equals(description, other.description)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
 	}
 	
 }

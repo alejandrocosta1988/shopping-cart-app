@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.text.NumberFormat;
+import java.util.Objects;
 
 public class CartItem implements Serializable {
 
@@ -44,6 +45,23 @@ public class CartItem implements Serializable {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(product, quantity);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CartItem other = (CartItem) obj;
+		return Objects.equals(product, other.product) && quantity == other.quantity;
 	}
 	
 }

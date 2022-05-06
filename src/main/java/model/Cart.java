@@ -47,6 +47,7 @@ public class Cart implements Serializable {
 	private void updateItemQuantity(CartItem cartItem) {
 		
 		int index = items.indexOf(cartItem);
+		System.out.println(index);
 		CartItem updatedItem = items.get(index);
 		updatedItem.setQuantity(updatedItem.getQuantity() + 1);
 		items.set(index, updatedItem);
