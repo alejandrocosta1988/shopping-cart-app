@@ -51,7 +51,12 @@
         </td>
         
         <td>
-          Deletar
+          <form action="cart" method="post">
+            <input type="hidden" name="product-code" value="${item.product.code}">
+            <input type="hidden" name="quantity" value="0">
+            <input type="hidden" name="action" value="updateQuantity">
+            <input type="submit" value="Deletar">
+          </form>
         </td>
         
       </tr>
