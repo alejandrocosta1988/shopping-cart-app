@@ -97,6 +97,10 @@ public class CartServlet extends HttpServlet {
 			
 			cart.updateQuantity(cartItem);
 			
+			if (cartItem.getQuantity() == 0) {
+				cart.removeItem(cartItem);
+			}
+			
 		} else if (action.equals("see")) {
 			
 			url = "/cart.jsp";
