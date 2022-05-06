@@ -33,6 +33,8 @@
                    value="<c:out value='${item.product.code}'></c:out>">
             <input type="text" name="quantity"
                    value="<c:out value='${item.quantity}'></c:out>">
+            <input type="hidden" name="action" value="updateQuantity">
+            <input type="submit" value="Atualizar">
           </form>
         </td>
         

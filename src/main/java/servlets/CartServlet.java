@@ -58,7 +58,6 @@ public class CartServlet extends HttpServlet {
 			url = "/cart.jsp";
 			
 			String productCode = request.getParameter("product-code");
-			String quantityString = request.getParameter("quantity");
 			
 			HttpSession session = request.getSession(); 
 			Cart cart = (Cart) session.getAttribute("cart");
@@ -66,6 +65,20 @@ public class CartServlet extends HttpServlet {
 				cart = new Cart();
 			}
 			
+			String path = servletContext.getRealPath("WEB-INF/products.txt");
+			Product product = ProductIO.getProduct(productCode, path);
+			CartItem cartItem = new CartItem(product, 1);
+			cart.addItem(cartItem);
+			
+			session.setAttribute("cart", cart);
+			
+		} else if (action.equals("updateQuantity")) {
+			
+			url = "/cart.jsp";
+			
+			String productCode = request.getParameter("product-code");
+			String quantityString = request.getParameter("quantity");
+
 			//Se a quantidade for inválida
 			int quantity;
 			try {
@@ -77,12 +90,12 @@ public class CartServlet extends HttpServlet {
 				quantity = 1; //Se quantidade for null
 			}
 			
-			String path = servletContext.getRealPath("WEB-INF/products.txt");
+			Cart cart = (Cart) request.getSession().getAttribute("cart");
+			String path = servletContext.getRealPath("/WEB-INF/products.txt");
 			Product product = ProductIO.getProduct(productCode, path);
 			CartItem cartItem = new CartItem(product, quantity);
-			cart.addItem(cartItem);
 			
-			session.setAttribute("cart", cart);
+			cart.updateQuantity(cartItem);
 			
 		} else if (action.equals("see")) {
 			
