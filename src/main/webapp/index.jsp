@@ -61,6 +61,10 @@
       
     </table>
     
+    <p>
+      Ir para o <a href="cart?action=see">carrinho</a>
+    </p>
+    
     <footer>
       <jsp:include page="includes/footer.jsp"></jsp:include>
     </footer>

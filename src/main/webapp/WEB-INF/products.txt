@@ -1,0 +1,3 @@
+pf01|Item A|17.99
+pf02|Item B|21.99
+pf03|Item C|3.55
